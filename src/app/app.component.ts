@@ -14,7 +14,7 @@ import { Item } from './item';
       ]),
       transition(':leave', [
         animate(
-          '2s 2.5s ease-out',
+          '1s 2s ease-out',
           style({
             opacity: 0,
             color: 'red',
@@ -27,34 +27,36 @@ import { Item } from './item';
 })
 export class AppComponent implements OnInit, OnDestroy {
   timerId: number;
-  items: Item[] = [
-    {
-      id: 1,
-      name: 'Item 1',
-    },
-    {
-      id: 2,
-      name: 'Item 2',
-    },
-    {
-      id: 3,
-      name: 'Item 3',
-    },
-    {
-      id: 4,
-      name: 'Item 4',
-    },
-    {
-      id: 5,
-      name: 'Item 5',
-    },
-  ];
+  items: Item[] = [];
 
   ngOnInit(): void {
     this.initialize();
   }
   initialize() {
-    //fake API call to simulate scenario
+    // initialize items
+    this.items = [
+      {
+        id: 1,
+        name: 'Item 1',
+      },
+      {
+        id: 2,
+        name: 'Item 2',
+      },
+      {
+        id: 3,
+        name: 'Item 3',
+      },
+      {
+        id: 4,
+        name: 'Item 4',
+      },
+      {
+        id: 5,
+        name: 'Item 5',
+      },
+    ];
+    //using timeout to simulate fake API call  API scenario
     this.timerId = setTimeout(() => {
       // new data arriives from server
       this.items = [
@@ -77,13 +79,8 @@ export class AppComponent implements OnInit, OnDestroy {
       ];
     }, 5000);
   }
-
   trackByItemId(index: number, item: Item): number {
     return item.id;
-  }
-  replay() {
-    this.clearTimerRefernce();
-    this.initialize();
   }
   ngOnDestroy(): void {
     this.clearTimerRefernce();
