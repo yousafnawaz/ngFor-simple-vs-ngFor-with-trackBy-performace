@@ -10,11 +10,11 @@ import { Item } from './item';
     trigger('myInsertRemoveTrigger', [
       transition(':enter', [
         style({ opacity: 0 }),
-        animate('2s ease-in', style({ opacity: 1, color: 'green' })),
+        animate('1s ease-in', style({ opacity: 1, color: 'green' })),
       ]),
       transition(':leave', [
         animate(
-          '1s 2s ease-out',
+          '1s 1s ease-out',
           style({
             opacity: 0,
             color: 'red',
@@ -78,7 +78,7 @@ export class AppComponent implements OnInit, OnDestroy {
           name: 'Item 6 Added',
         },
       ];
-    }, 5000);
+    }, 3000);
   }
   trackByItemId(index: number, item: Item): number {
     return item.id;
