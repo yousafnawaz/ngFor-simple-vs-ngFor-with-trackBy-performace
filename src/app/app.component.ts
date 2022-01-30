@@ -30,7 +30,7 @@ export class AppComponent implements OnInit, OnDestroy {
   items: Item[] = [];
 
   ngOnInit(): void {
-    this.initialize();
+    //this.initialize();
   }
   initialize() {
     // initialize items
@@ -87,5 +87,10 @@ export class AppComponent implements OnInit, OnDestroy {
   }
   clearTimerRefernce() {
     clearTimeout(this.timerId);
+  }
+  run() {
+    setTimeout(() => {
+      this.initialize();
+    }, 3000);
   }
 }
