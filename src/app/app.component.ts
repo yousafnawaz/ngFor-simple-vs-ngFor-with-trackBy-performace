@@ -10,11 +10,11 @@ import { Item } from './item';
     trigger('myInsertRemoveTrigger', [
       transition(':enter', [
         style({ opacity: 0 }),
-        animate('1s ease-in', style({ opacity: 1, color: 'green' })),
+        animate('2s ease-in', style({ opacity: 1, color: 'green' })),
       ]),
       transition(':leave', [
         animate(
-          '1s 1s ease-out',
+          '2s 1s ease-out',
           style({
             opacity: 0,
             color: 'red',
